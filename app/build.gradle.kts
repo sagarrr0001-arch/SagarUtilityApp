@@ -6,14 +6,12 @@ plugins {
 
 android {
     namespace = "com.example.sagarutilityapp"
-    compileSdk {
-        version = release(36)
-    }
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.sagarutilityapp"
         minSdk = 26
-        targetSdk = 36
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -50,6 +48,24 @@ dependencies {
     implementation(libs.androidx.compose.ui.graphics)
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.compose.material3)
+
+    // Koin
+    implementation(libs.koin.android)
+    implementation(libs.koin.androidx.compose)
+
+    // Retrofit
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.converter.gson)
+    implementation(libs.retrofit.converter.scalars)
+    implementation(libs.okhttp)
+    implementation(libs.okhttp.logging)
+
+    // DataStore
+    implementation(libs.androidx.datastore.preferences)
+
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.7")
+    implementation("androidx.lifecycle:lifecycle-runtime-compose:2.8.7")
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -57,10 +73,4 @@ dependencies {
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
-    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.10.0") //2.8.7
-    implementation ("androidx.lifecycle:lifecycle-runtime-compose:2.10.0") //2.8.7
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.10.0") //2.8.7
-    implementation ("com.squareup.retrofit2:retrofit:3.0.0") //2.11.0
-    implementation ("com.squareup.retrofit2:converter-scalars:3.0.0") //2.11.0
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.10.2") //1.8.1
 }

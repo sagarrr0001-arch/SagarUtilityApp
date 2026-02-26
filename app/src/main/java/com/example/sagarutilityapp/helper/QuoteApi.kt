@@ -14,7 +14,7 @@ interface QuoteApi {
 object RetrofitInstance {
     val api: QuoteApi by lazy {//defers the initialization of the variable until it is first accessed.
         Retrofit.Builder()
-            .baseUrl("http://api.forismatic.com/")
+            .baseUrl("https://api.open-meteo.com/v1/forecast")
             .addConverterFactory(ScalarsConverterFactory.create())
             .build()
             .create(QuoteApi::class.java)
