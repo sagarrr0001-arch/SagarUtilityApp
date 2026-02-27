@@ -12,7 +12,8 @@ class WeatherViewModel : ViewModel() {
 
     private val repo = WeatherRepository()
 
-    private val _query = MutableStateFlow("Sydney")
+    // ✅ Default city = Brisbane
+    private val _query = MutableStateFlow("Brisbane")
     val query: StateFlow<String> = _query
 
     private val _weather = MutableStateFlow<WeatherUi?>(null)
@@ -24,9 +25,14 @@ class WeatherViewModel : ViewModel() {
     private val _error = MutableStateFlow<String?>(null)
     val error: StateFlow<String?> = _error
 
-    init { search() }
+    // Automatically load Brisbane weather when app starts
+    init {
+        search()
+    }
 
-    fun setQuery(text: String) { _query.value = text }
+    fun setQuery(text: String) {
+        _query.value = text
+    }
 
     fun search() {
         val city = _query.value.trim()
